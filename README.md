@@ -17,13 +17,13 @@ Harness the power of AI with PyScreen, a state-of-the-art tool designed to extra
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/alexandrevl/pyscreen_2.git
+   git clone https://github.com/alexandrevl/pyscreen.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd pyscreen_2
+   cd pyscreen
    ```
 
 3. Run PyScreen on your preferred screen recording:
