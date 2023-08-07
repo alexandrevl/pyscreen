@@ -3,11 +3,12 @@ import argparse
 import gc
 import mimetypes
 import os
+import cv2
 from pathlib import Path
 
 from utils.clean_folders import clean_folders
 from utils.colors import colors_img
-from utils.frames import (clean_unique, compare_files, get_frames,
+from utils.frames import (clean_unique, analyze_image_similarity, get_frames,
                           remove_duplicates)
 from utils.text_compute import text_compute
 
@@ -36,6 +37,18 @@ def parse_arguments():
 
     return args
 
+def write_img_to_file(img, total_write):
+    filename = "result/" + str(total_write).zfill(4) + ".jpg"
+    cv2.imwrite(filename, img)
+    return img
+
+def write_to_file(array_imgs):
+    count = 0
+    for img in array_imgs:
+        write_img_to_file(img, count)
+        count += 1
+    return array_imgs
+
 ########
 # Main #
 ########
@@ -54,19 +67,19 @@ if __name__ == "__main__":
     height, width, all_frames = get_frames(video)
     # all_frames = get_frames(video)
     print("First compare and clean")
-    first_imgs = compare_files(all_frames, 0.75, 3)
+    first_imgs = analyze_image_similarity(all_frames, 0.75, 3)
     del all_frames
     gc.collect()
     print("Second compare and clean")
-    second_imgs = compare_files(first_imgs, 0.65, 2)
+    second_imgs = analyze_image_similarity(first_imgs, 0.65, 2)
     del first_imgs
     gc.collect()
     print("Cleanning for unique screens")
     final_imgs = clean_unique(second_imgs, 0.84)
     del second_imgs
-    gc.collect()
-    colors_img(final_imgs, height, width)
     no_duplicates = remove_duplicates(final_imgs)
-    text_compute(no_duplicates, height, width, args.disable_chatgpt)
-    # result_map(final_imgs)
+    gc.collect()
+    colors_img(no_duplicates, height, width)
+    imgs_to_write = text_compute(final_imgs, height, width, args.disable_chatgpt)
+    write_to_file(imgs_to_write)
     print("Perfect! Check folder: result/")
