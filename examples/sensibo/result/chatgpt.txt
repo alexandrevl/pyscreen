@@ -1,0 +1,13 @@
+Based on the data provided, the language appears to be English.
+
+The app seems to be a tool for monitoring and controlling indoor air quality, possibly a part of a smart home system. The app name appears to be "Sensibo", a well-known brand in the smart air conditioner controllers' domain.
+
+In the first screen, we can see a "health tip". The text mentions the 'indoor air quality' 'getting bad' and suggests 'opening the windows' and 'adjusting sensitivity'. The words '19.1', 'main', 'auto', 'low' and 'tvoc'  suggest that certain parameters like temperature, air quality levels are being displayed for different rooms like 'bedroom' and 'office'.
+
+On the second screen, apart from temperature and air quality again, the users are provided with control options like 'turn off' and features to control the fan, light and swing. There are also options to view 'monthly usage', 'statistics', 'schedule', 'timer', 'graphs' and 'logs'.
+
+The third screen is slightly different - it seems to display historical temperature data 'by hour' and 'by month'. The app also logs when and who (the 'HomeKit' integration) changed the state of the system, like 'turning off' or changing modes like 'auto' or 'low'.
+
+The subsequent screens are repeated and seem to be variations of the first and second screens, indicating that the user might be toggling between these screens and continuously monitoring and adjusting the indoor air conditions.
+
+The final result of the sequence of screens seems the user adjusting and monitoring the indoor air quality and temperature within different rooms in their house or office.

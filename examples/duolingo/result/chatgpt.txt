@@ -1,0 +1,13 @@
+The language used in the screens is Dutch. Duolingo is evidently the app, which provides language learning services to users.
+
+The first screen displays the word "aye" indicating a sound of attention, interest, or approval. The word "duolingo" is also presented confirming the referred app. The text probably acts as an introductory greeting or title.
+
+The second screen shows various English words, namely 'its', 'good', 'see', 'you', 'again', and so on. The message says "It's good to see you again. Haven't seen you for a while. Let's get back to learning Dutch." With the words "start," "mini," and "review," it seems like the app extends an invitation for a short review session in Dutch. 
+
+The third screen shows the words 'jump' and 'here'. This probably is a navigation feature inviting the user to skip to a different section.
+
+The fourth screen displays a numeric value '202', with other words being 'section', 'rookie', 'describe', 'basic', 'contexts', 'hard', 'lesson' and 'start'. "Rookie" is a term often used to denote a novice. This screen might be the start of a beginner level lesson that involves explaining basic contexts. 
+
+The fifth screen asks to translate a sentence from Dutch ("drinken sap.").  Other words displayed include 'and', 'boy', 'drink', 'water', 'the', 'juice'. The Dutch sentence translates to "drink juice" in English, and it's expected the user will match this with the correct English phrases present.
+
+The final result of this sequence is the user starting a beginner-level Dutch language learning and revision session with Duolingo.
