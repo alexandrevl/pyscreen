@@ -38,15 +38,15 @@ def wordcloud_write(words_size, stopwords, height, width):
     wordcloudDict = {}
     for array in words_size:
         for tup in array:
-            word, x, y, size = tup
+            word, x, y, w, h = tup
             word = unidecode.unidecode(word.lower())
             # Remove all non-alphabetic characters
             word = re.sub(r'[^a-z]', '', word)
             # Check if the cleaned word is not empty and its length is greater than or equal to 3
             if word and len(word) >= 3:
                 if word in wordcloudDict:
-                    wordcloudDict[word] += size
+                    wordcloudDict[word] += h
                 else:
-                    wordcloudDict[word] = size
+                    wordcloudDict[word] = h
     wordcloud = WordCloud(width=width, height=height, stopwords=stopwords).generate_from_frequencies(wordcloudDict)
     wordcloud.to_file("result/wordcloud.png")

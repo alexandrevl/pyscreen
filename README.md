@@ -4,7 +4,11 @@ Harness the power of AI with PyScreen, a state-of-the-art tool designed to extra
 
 ## Key Features
 
-- **Screen Extraction:** Seamlessly extracts data from the screens of any given video file.
+- **Screen Extraction:** Seamlessly extracts screens and data from the screens of any given video file.
+
+- **Screen Blur**: Blurs sensitive information (e.g. passwords, credit card numbers) in your screens, ensuring privacy and security.
+
+- **Text Extraction:** Extracts text from screens using Tesseract OCR, enabling text-based analysis.
 
 - **Word Cloud Generation:** Generates dynamic word clouds reflecting the most frequently used words in your screens, offering a quick content overview.
 

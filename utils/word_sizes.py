@@ -13,14 +13,12 @@ def get_word_sizes(image):
             # (x, y, w, h) = (data['par_num'][i], data['line_num'][i], data['word_num'][i], data['height'][i])
             word = remove_special_chars_and_accents(data['text'][i])
             if len(word) >= 3:
-                result.append((word, x, y, h))  # appending word, width and height to the result list
+                result.append((word, x, y, w, h))  # appending word, width and height to the result list
     return result
 
-
-
 def remove_special_chars_and_accents(string):
-    # Remove special characters
-    string = re.sub(r'[^\w\s]', '', string)
+    # # Remove special characters
+    string = re.sub(r'[^\w\s.,-]', '', string)
 
     # Remove accents
     string = unidecode.unidecode(string)

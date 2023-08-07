@@ -32,11 +32,11 @@ def get_frames(inputFile):
     print("")
     return (height, width, all_frames)
 
-
 def clean_unique(imgs, rate_index):
     print("\r", end="")
-    total_write = 0
+    total_write = 1
     result_imgs = []
+    
     for index, img in enumerate(imgs):
         if index > 0:
             res = cv2.absdiff(
@@ -45,21 +45,20 @@ def clean_unique(imgs, rate_index):
             )
             res = res.astype(np.uint8)
             percentage = 1 - (np.count_nonzero(res) / res.size)
+            
             if percentage <= rate_index:
-                cv2.imwrite(
-                    "result/" + str(total_write).zfill(4) + ".jpg", imgs[index - 1]
-                )
                 result_imgs.append(imgs[index - 1])
                 total_write += 1
                 print("\r> screens promoted: " + str(total_write), end="")
-    cv2.imwrite("result/" + str(total_write).zfill(4) + ".jpg", imgs[len(imgs) - 1])
+
     result_imgs.append(imgs[len(imgs) - 1])
-    print("\r> screens promoted: " + str(total_write+1), end="")
+    print("\r> screens promoted: " + str(total_write), end="")
     print("")
+
     return result_imgs
 
 
-def compare_files(imgs, rate_index, depth):
+def analyze_image_similarity(imgs, rate_index, depth):
     range_limits = depth
     range_min = range_limits * (-1)
     range_max = range_limits + 1
@@ -102,3 +101,4 @@ def remove_duplicates(all_imgs):
                     if percentage > 0.95:
                         result.pop(y)
     return result
+
