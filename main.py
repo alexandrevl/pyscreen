@@ -67,15 +67,15 @@ if __name__ == "__main__":
     height, width, all_frames = get_frames(video)
     # all_frames = get_frames(video)
     print("First compare and clean")
-    first_imgs = analyze_image_similarity(all_frames, 0.75, 3)
+    first_imgs = analyze_image_similarity(all_frames, 0.90, 10)
     del all_frames
     gc.collect()
     print("Second compare and clean")
-    second_imgs = analyze_image_similarity(first_imgs, 0.65, 2)
+    second_imgs = analyze_image_similarity(first_imgs, 0.95, 4)
     del first_imgs
     gc.collect()
     print("Cleanning for unique screens")
-    final_imgs = clean_unique(second_imgs, 0.84)
+    final_imgs = clean_unique(second_imgs, 0.70)
     del second_imgs
     no_duplicates = remove_duplicates(final_imgs)
     gc.collect()

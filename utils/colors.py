@@ -31,7 +31,7 @@ def colors_img(all_imgs, height, width):
         cid, cname, hex = getColorName(r, g, b)
         final_imgs.update({f"{hex}": qnt})
     i = 1
-    h_rect = int(height // size)
+    rect_height = 25
     final = final_imgs.most_common(size)
     to_harmony = []
     first_three = final_imgs.most_common(3)
@@ -43,9 +43,9 @@ def colors_img(all_imgs, height, width):
     for cl in final:
         sum += cl[1]
     img = np.zeros((height, width, 3), dtype=np.uint8)
-    rect_height = 25
+
     cv2.rectangle(img, (0, 0), (width, rect_height), (192, 192, 192), -1)
-    # text = "harmony score: " + str(round(harmony_score, 2)) + "%"
+
     text = "harmony: " + str(round(harmony_score)) + ", analogous: " + str(round(analogous_score)) + ", complementary: " + str(round(complementary_score)) + ", split complementary: " + str(round(split_complementary_score)) + ", triadic: " + str(round(triadic_score)) + ", monochromatic: " + str(round(monochromatic_score))
     
     font = cv2.FONT_HERSHEY_COMPLEX
@@ -57,12 +57,13 @@ def colors_img(all_imgs, height, width):
     text_y = 15
     org = (text_x, text_y)
     img = cv2.putText(img, text, org, font, fontScale, color, thickness, cv2.LINE_AA, False)
+    top_rect = rect_height
     i = rect_height
     for cl in final:
         hex = cl[0]
         qnt = cl[1]
         color_array = getColorHex(hex)
-        rect_height = int(qnt / sum * height)
+        rect_height = int(qnt / sum * (height-top_rect))
         cv2.rectangle(img, (0, i), (width, i + rect_height), color_array[0], -1)
         text = color_array[2].lower() + " " + hex + " " + str(round(qnt / sum * 100, 2)) + "%"
         font = cv2.FONT_HERSHEY_DUPLEX

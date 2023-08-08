@@ -18,7 +18,7 @@ def get_word_sizes(image):
 
 def remove_special_chars_and_accents(string):
     # # Remove special characters
-    string = re.sub(r'[^\w\s.,-]', '', string)
+    string = re.sub(r'[^\w\s.,-/:]', '', string)
 
     # Remove accents
     string = unidecode.unidecode(string)

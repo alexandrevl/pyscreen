@@ -47,6 +47,7 @@ def clean_unique(imgs, rate_index):
             percentage = 1 - (np.count_nonzero(res) / res.size)
             
             if percentage <= rate_index:
+                # print(" -> ", percentage, rate_index)
                 result_imgs.append(imgs[index - 1])
                 total_write += 1
                 print("\r> screens promoted: " + str(total_write), end="")
